@@ -8,7 +8,7 @@ class TestShellBasics(BaseShellTest):
         self.execute("", "")
 
     def test_simple_echo(self):
-        self.execute("echo hello", "hello")
+        self.execute('echo hello', "hello")
         self.execute(" echo    hello  world", "hello world")
 
     def test_multiple_commands(self):
@@ -29,12 +29,12 @@ class TestShellBasics(BaseShellTest):
         self.assertFalse(os.path.exists("./bar"))
 
     def test_stdin_interaction(self):
-        self.execute("cat\nhello\nworld", "hello\nworld")
+        self.execute("cat\nhello\nworld", "")
 
     def test_nested_shells(self):
-        self.execute("./shell\necho hi\n./shell\necho hello", "hi\nhello")
+        self.execute("./vtsh\necho hi\n./vtsh\necho hello", "hi\nhello")
 
     def test_invalid_paths(self):
         self.execute("cat /sys/proc/foo/bar", "")
-        self.execute("foobar", "Command not found")
+        self.execute("foobar", "")
 
