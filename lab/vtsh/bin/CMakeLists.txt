@@ -1,6 +1,6 @@
 add_executable(
     vtsh
-    main.c
+    vtsh.c
 )
 
 set_target_properties(vtsh PROPERTIES
