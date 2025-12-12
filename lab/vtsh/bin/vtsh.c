@@ -113,7 +113,7 @@ static int vtsh_run_with_globbing(char** argv) {
     const char* a_val = argv[i];
     if (strchr(a_val, '*') != NULL || strchr(a_val, '?') != NULL ||
         strchr(a_val, '[') != NULL) {
-      int flags = GLOB_NOCHECK | GLOB_TILDE;
+      int flags = GLOB_NOCHECK;
       if (glob(a_val, flags, NULL, &g_val) != 0) {  // NOLINT(concurrency-mt-unsafe)
         new_argv[new_argc++] = strdup(a_val);
         continue;
